@@ -20,8 +20,12 @@ public:
   //   of the pixels in the PNG.
   // PRE: upper and left (and upper + dimension, left + dimension) are valid
   //        vector indices
-  void Build(PNG& im, int upper, int left, int dimension){
-
+  void Build(PNG& im, int upper, int left, int dimension){    //upper left (left, upper)
+    for(int x = 0; x < dimension; x++){
+      for(int y = 0; y < dimension; y++){
+        data.at(x).assign(*im.getPixel(x,y),y);
+      }
+    }
   }
 
   // write the pixel colour data fom data attribute into im,
@@ -48,7 +52,7 @@ public:
 private:
   // 2D container for pixel data
   // Be aware that a newly declared vector has a size of 0
-  vector<vector<HSLAPixel>> data;
+  vector<vector<HSLAPixel>> data; //column(row())
 
 };
 #endif
