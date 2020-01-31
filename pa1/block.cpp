@@ -20,7 +20,6 @@ vector<vector<HSLAPixel>> data; //column(row())
 // PRE: upper and left (and upper + dimension, left + dimension) are valid
 //        vector indices
 void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left (left, upper)
-  cout << "starting block.build" << endl;
   for(int x = 0; x < dimension; x++){
     data.push_back(vector<HSLAPixel>());
     for(int y = 0; y < dimension; y++){
