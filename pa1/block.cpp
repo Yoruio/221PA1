@@ -23,7 +23,7 @@ public:
   void Build(PNG& im, int upper, int left, int dimension){    //upper left (left, upper)
     for(int x = 0; x < dimension; x++){
       for(int y = 0; y < dimension; y++){
-        data.at(x).assign(*im.getPixel(x,y),y);
+        data.at(x).assign(*im.getPixel(left + x,upper - y),y);
       }
     }
   }
@@ -33,7 +33,11 @@ public:
   // PRE: upper and left (and upper + dimension, left + dimension) are valid
   //        vector indices
   void Render(PNG& im, int upper, int left) const{
-
+      for(int x = 0; x < data.size(); x++){
+        for(int y = 0; y < data.size(); y++){
+          im.getPixel(left + x, upper - y)=data.at(x).at(y);
+        }
+      }
   }
 
   // "Reverse" the Hue and Luminance channels for each pixel in the data attribute
