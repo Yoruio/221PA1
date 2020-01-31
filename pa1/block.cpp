@@ -23,6 +23,7 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
   cout << "starting block.build" << endl;
   for(int x = 0; x < dimension; x++){
     for(int y = 0; y < dimension; y++){
+      cout << "inner for loop" << endl;
       data[x][y] = *im.getPixel(left + x,upper - y);
     }
   }
