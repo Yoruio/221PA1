@@ -24,7 +24,9 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
   for(int x = 0; x < dimension; x++){
     for(int y = 0; y < dimension; y++){
       cout << "inner for loop" << endl;
-      data[x][y] = *im.getPixel(left + x,upper - y);
+      HSLAPixel *pixel = im.getPixel(left + x,upper - y);
+      cout << "HSLAPIXEL ASSIGNED" << endl;
+      data[x][y] = *pixel;
     }
   }
   cout << "finished block.build" << endl;
