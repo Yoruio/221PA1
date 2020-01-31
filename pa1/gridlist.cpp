@@ -25,7 +25,7 @@ PNG GridList::Render() const
 // Be careful of the special case of inserting into an empty list.
 void GridList::InsertBack(const Block& bdata)
 {
-  // enter your code here
+  
 }
 
 // if this list has an odd number of column blocks, then the right side will have more blocks
