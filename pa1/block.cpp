@@ -46,11 +46,13 @@ public:
   //   for "reversing" hue and luminance.
   void Negative(){
     int dimension = Dimension(); 
-    for(unsigned x = 0; x < dimension; x++){
-      HSLAPixel* pixel = data.at(x).at(x); 
-      double sat = pixel->s; 
-      pixel->s = pixel->h; 
-      pixel->h = sat; 
+    for(int x = 0; x < dimension; x++){
+        for(int x = 0; y < dimension; x++){
+          HSLAPixel* pixel = data[x][y]; 
+          double sat = pixel->s; 
+          pixel->s = pixel->h; 
+          pixel->h = sat; 
+        }
     }
   }
 
