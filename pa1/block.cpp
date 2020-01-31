@@ -20,11 +20,13 @@ vector<vector<HSLAPixel>> data; //column(row())
 // PRE: upper and left (and upper + dimension, left + dimension) are valid
 //        vector indices
 void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left (left, upper)
+  cout << "starting block.build" << endl;
   for(int x = 0; x < dimension; x++){
     for(int y = 0; y < dimension; y++){
       data[x][y] = *im.getPixel(left + x,upper - y);
     }
   }
+  cout << "finished block.build" << endl;
 }
 
 // write the pixel colour data fom data attribute into im,
@@ -32,11 +34,13 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
 // PRE: upper and left (and upper + dimension, left + dimension) are valid
 //        vector indices
 void Block::Render(PNG& im, int upper, int left) const{
+  cout << "starting block.render" << endl;
   for(int x = 0; (unsigned) x < data.size(); x++){
     for(int y = 0; (unsigned) y < data.size(); y++){
       *im.getPixel(left + x, upper - y) = data[x][y];
     }
   }
+  cout << "finished block.render" << endl;
 }
 
 // "Reverse" the Hue and Luminance channels for each pixel in the data attribute
@@ -44,6 +48,7 @@ void Block::Render(PNG& im, int upper, int left) const{
 // Refer to the HSLAPixel documentation to determine an appropriate transformation
 //   for "reversing" hue and luminance.
 void Block::Negative(){
+  cout << "starting block.negative" << endl;
   int dimension = Dimension(); 
   for(int x = 0; x < dimension; x++){
     for(int y = 0; y < dimension; y++){
@@ -53,9 +58,11 @@ void Block::Negative(){
       pixel->h = sat; 
     }
   }
+  cout << "finished block.negative" << endl;
 }
 
 // Return the horizontal (or vertical) size of the data block's image region
 int Block::Dimension() const{
+  cout << "dimensions" << endl;
   return data.size(); 
 }
