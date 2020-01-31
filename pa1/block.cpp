@@ -44,7 +44,7 @@ public:
   void Negative(){
     int dimension = Dimension(); 
     for(int x = 0; x < dimension; x++){
-        for(int x = 0; y < dimension; x++){
+        for(int y = 0; y < dimension; y++){
           HSLAPixel* pixel = &data[x][y]; 
           double sat = pixel->s; 
           pixel->s = pixel->h; 
