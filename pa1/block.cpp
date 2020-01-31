@@ -33,9 +33,9 @@ public:
   // PRE: upper and left (and upper + dimension, left + dimension) are valid
   //        vector indices
   void Render(PNG& im, int upper, int left) const{
-      for(int x = 0; x < data.size(); x++){
-        for(int y = 0; y < data.size(); y++){
-          *im.getPixel(left + x, upper - y) = data[x][y]];
+      for(int x = 0; (unsigned) x < data.size(); x++){
+        for(int y = 0; (unsigned) y < data.size(); y++){
+          *im.getPixel(left + x, upper - y) = data[x][y];
         }
       }
   }
@@ -46,8 +46,8 @@ public:
   //   for "reversing" hue and luminance.
   void Negative(){
     int dimension = Dimension(); 
-    for(unsigned x = 0; x < dimension; x++){
-      HSLAPixel* pixel = data.at(x).at(x); 
+    for(int x = 0; x < dimension; x++){
+      HSLAPixel* pixel = data[x][x]; 
       double sat = pixel->s; 
       pixel->s = pixel->h; 
       pixel->h = sat; 
