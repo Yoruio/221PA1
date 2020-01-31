@@ -35,7 +35,7 @@ public:
   void Render(PNG& im, int upper, int left) const{
       for(int x = 0; x < data.size(); x++){
         for(int y = 0; y < data.size(); y++){
-          im.getPixel(left + x, upper - y)=data[x][y]];
+          *im.getPixel(left + x, upper - y) = data[x][y]];
         }
       }
   }
