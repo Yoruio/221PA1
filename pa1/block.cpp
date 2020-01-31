@@ -27,6 +27,7 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
       HSLAPixel *pixel = im.getPixel(left + x,upper - y);
       cout << "HSLAPIXEL ASSIGNED" << endl;
       data[x][y] = *pixel;
+      cout << "data assigned" << endl;
     }
   }
   cout << "finished block.build" << endl;
