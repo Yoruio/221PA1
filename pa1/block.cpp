@@ -41,12 +41,18 @@ public:
   // Refer to the HSLAPixel documentation to determine an appropriate transformation
   //   for "reversing" hue and luminance.
   void Negative(){
-
+    int dimension = Dimension(); 
+    for(unsigned x = 0; x < dimension; x++){
+      HSLAPixel* pixel = data.at(x).at(x); 
+      double sat = pixel->s; 
+      pixel->s = pixel->h; 
+      pixel->h = sat; 
+    }
   }
 
   // Return the horizontal (or vertical) size of the data block's image region
   int  Dimension() const{
-
+    return data.size(); 
   }
 
 private:
