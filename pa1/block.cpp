@@ -1,6 +1,3 @@
-#ifndef _BLOCK_H_
-#define _BLOCK_H_
-
 #include "block.h"
 #include <vector>
 #include <iostream>
@@ -67,4 +64,3 @@ private:
   vector<vector<HSLAPixel>> data; //column(row())
 
 };
-#endif
