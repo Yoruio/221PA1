@@ -48,12 +48,21 @@ void Block::Render(PNG& im, int upper, int left) const{
 //   for "reversing" hue and luminance.
 void Block::Negative(){
   int dimension = Dimension(); 
+
   for(int x = 0; x < dimension; x++){
     for(int y = 0; y < dimension; y++){
       HSLAPixel* pixel = &data[x][y]; 
-      double sat = pixel->s; 
-      pixel->s = pixel->h; 
-      pixel->h = sat; 
+      if(pixel->h <180){
+        pixel->h += 180; 
+      }else if(pixel->h >= 180){
+        pixel->h -=180; 
+      }
+      if(pixel->l <=0.5){
+        pixel->l = 1-pixel->l; 
+      }else{
+        pixel->l = 1-pixel->l; 
+      }
+      data[x][y] = *pixel; 
     }
   }
 }
