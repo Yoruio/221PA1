@@ -22,6 +22,7 @@ vector<vector<HSLAPixel>> data; //column(row())
 void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left (left, upper)
   cout << "starting block.build" << endl;
   for(int x = 0; x < dimension; x++){
+    data.insert(vector<HSLAPixel>, data.size());
     for(int y = 0; y < dimension; y++){
       cout << "inner for loop" << endl;
       HSLAPixel *pixel = im.getPixel(left + x,upper - y);
@@ -30,7 +31,7 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
       cout << pixel->s << endl;
       cout << pixel->l << endl;
       cout << pixel->a << endl;
-      data[x][y] = *pixel;
+      data[x].insert(*pixel, data[x].size());
       cout << "data assigned" << endl;
     }
   }
