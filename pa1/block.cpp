@@ -30,7 +30,8 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
       cout << pixel->s << endl;
       cout << pixel->l << endl;
       cout << pixel->a << endl;
-      data[x][y] = *pixel;
+      cout << *pixel; 
+      data.assign(1, *pixel);
       cout << "data assigned" << endl;
     }
   }
