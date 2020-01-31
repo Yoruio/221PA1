@@ -7,7 +7,7 @@
 using namespace std;
 using namespace cs221util;
 
-class Block {
+Block {
 
 public:
 
