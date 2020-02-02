@@ -118,6 +118,7 @@ void GridList::CheckerN()
     for(int i = 0; i < dimx; i++){
       if (currentBlack) currentNode->data.Negative();
       currentBlack = !currentBlack;
+      currentNode = currentNode->next;
     }
     firstBlack = !firstBlack;
   }
