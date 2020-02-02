@@ -20,8 +20,8 @@ int dimy; // vertical dimension of grid (in blocks)*/
 // The fully coloured PNG is returned.
 PNG GridList::Render() const
 {
-  int blockDimension = northwest->data.Dimension;
-  int imageHeight = dimy*northwest->data.Dimension;
+  int blockDimension = northwest->data.Dimension();
+  int imageHeight = dimy*northwest->data.Dimension();
   int imageWidth = dimx*blockDimension;
 
   PNG image(imageWidth, imageHeight);
