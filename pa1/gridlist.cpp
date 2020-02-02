@@ -153,7 +153,10 @@ void GridList::Sandwich_V(GridList& inner)
     }
   }
   thisNode->prev->next = inner.northwest;
+  inner.northwest->prev = thisNode->prev;
+
   inner.southeast->next = thisNode;
+  thisNode->prev = inner.southeast;
 
 
   dimy += inner.dimy;
