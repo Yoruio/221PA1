@@ -10,6 +10,11 @@
 #include "gridlist.h"
 #include "gridlist_given.cpp"
 
+GridNode* northwest; // pointer to first (upper-left) node in the grid
+GridNode* southeast; // pointer to last (lower-right) node in the grid
+int dimx; // horizontal dimension of grid (in blocks)
+int dimy; // vertical dimension of grid (in blocks)
+
 // Creates a PNG of appropriate pixel dimensions according to the GridList's structure
 //   and colours each pixel according the each GridNode's Block data.
 // The fully coloured PNG is returned.
@@ -25,7 +30,10 @@ PNG GridList::Render() const
 // Be careful of the special case of inserting into an empty list.
 void GridList::InsertBack(const Block& bdata)
 {
-  
+  if (northwest == NULL){
+    northwest = new GridNode(bdata);
+    southeast = new GridNode(bdata);
+  }
 }
 
 // if this list has an odd number of column blocks, then the right side will have more blocks
