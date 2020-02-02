@@ -64,6 +64,7 @@ TEST_CASE("GridList::Render - 1x1", "[weight=1][part=gridlist]") {
   p->h = 270; p->s = 1.0; p->l = 0.875;
   GridList gl(img, 2);
 
+  cout << "rendering" << endl;
   PNG outimg = gl.Render();
   HSLAPixel* p0 = outimg.getPixel(0, 0);
   HSLAPixel* p1 = outimg.getPixel(1, 0);
