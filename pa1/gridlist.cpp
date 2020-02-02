@@ -25,6 +25,7 @@ PNG GridList::Render() const
   int imageWidth = dimx*blockDimension;
 
   cout << "image Height: " << imageHeight << endl;
+  cout << "dimx: " << dimx << endl;
   cout << "image Width: " << imageWidth << endl;
   cout << "blockDimension: " << blockDimension << endl;
 
