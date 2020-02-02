@@ -179,6 +179,32 @@ void GridList::Sandwich_V(GridList& inner)
 // DO NOT ALLOCATE OR DELETE ANY NODES IN THIS FUNCTION.
 void GridList::CheckerSwap(GridList& otherlist)
 {
+  if (dimx != otherlist.dimx || dimy != otherlist.dimy || northwest->data.Dimension()!=otherlist.northwest->data.Dimension()){
+    return;
+  }
+  bool firstSwapped = false;
+  GridNode* currentNode = northwest;
+  GridNode* otherNode = otherlist.northwest;
+  while(currentNode != NULL){
+    cout << "firstSwapped: " << firstSwapped << endl;
+    bool currentSwapped = firstSwapped;
+    for(int i = 0; i < dimx; i++){
+      if (currentSwapped){
+        GridNode *currentNext = currentNode->next;
+        currentNode->next = otherNode->next;
+        currentNode->next->prev = currentNode;
+        currentNode->next->next = currentNext->next;
+
+        currentNext->next = otherNode->next->next;
+        otherNode->next = currentNode->next;
+        otherNode->next->prev = otherNode;
+      }
+      currentSwapped = !currentSwapped;
+      currentNode = currentNode->next;
+      otherNode = otherNode->next;
+    }
+    firstSwapped = !firstSwapped;
+  }
   // enter your code here
 }
 
