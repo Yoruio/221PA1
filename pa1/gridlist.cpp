@@ -101,7 +101,7 @@ void GridList::Clear()
 {
   // enter your code here
   while(northwest == southeast){
-    nextNode = northwest;
+    GridNode* nextNode = northwest;
     delete northwest;
     northwest = nextNode;
   }
