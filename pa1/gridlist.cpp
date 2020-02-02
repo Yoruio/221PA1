@@ -99,7 +99,7 @@ void GridList::CheckerN()
 //   and re-initializes this list to an empty state
 void GridList::Clear()
 {
-  while(northwest != southeast){
+  /*while(northwest != southeast){
     GridNode* nextNode = northwest;
     delete northwest;
     northwest = nextNode;
@@ -107,7 +107,7 @@ void GridList::Clear()
   }
   delete northwest;
   northwest = NULL;
-  southeast = NULL;
+  southeast = NULL;*/
 }
 
 // Allocates new nodes into this list as copies of all nodes from otherlist
