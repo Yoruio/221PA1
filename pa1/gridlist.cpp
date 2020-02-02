@@ -100,6 +100,14 @@ void GridList::CheckerN()
 void GridList::Clear()
 {
   // enter your code here
+  while(northwest == southeast){
+    nextNode = northwest;
+    delete northwest;
+    northwest = nextNode;
+  }
+  delete northwest;
+  northwest = NULL;
+  southeast = NULL;
 }
 
 // Allocates new nodes into this list as copies of all nodes from otherlist
