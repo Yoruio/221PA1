@@ -110,6 +110,18 @@ void GridList::CheckerSwap(GridList& otherlist)
 void GridList::CheckerN()
 {
   // enter your code here
+  bool firstBlack = false;
+  GridNode* currentNode = northwest;
+  while (currentNode != NULL){
+    cout << "firstBlack: " << firstBlack << endl;
+    bool currentBlack = firstBlack;
+    for(int i = 0; i < dimx; i++){
+      if (currentBlack) currentNode->data.Negative();
+      currentBlack = !currentBlack;
+    }
+    firstBlack = !firstBlack;
+  }
+
 }
 
 // Deallocates any dynamic memory associated with this list
