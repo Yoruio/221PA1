@@ -31,11 +31,14 @@ PNG GridList::Render() const
 void GridList::InsertBack(const Block& bdata)
 {
   if (northwest == NULL){
+    cout << "if" << endl;
     northwest = new GridNode(bdata);
-    southeast = new GridNode(bdata);
+    southeast = northwest;
+    cout << "new gridnode" << endl;
   } else {
     std::cout << "else" << endl;
     southeast->next = new GridNode(bdata);
+    cout << "new gridnode" << endl;
     southeast = southeast->next;
 
   }
