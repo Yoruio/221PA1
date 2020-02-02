@@ -73,11 +73,13 @@ void GridList::InsertBack(const Block& bdata)
 // DO NOT ALLOCATE OR DELETE ANY NODES IN THIS FUNCTION.
 void GridList::Sandwich_H(GridList& inner)
 {
+  cout << "sandwich h" << endl;
   // enter your code here
   GridNode* thisCurrent = northwest;
   GridNode* innerCurrent = inner.northwest;
   int middle = dimx / 2;
   for(int y = 1; y <= dimy; y++){
+    cout << "outer for loop" << endl;
     for(int x = 1; x <= middle; x++){
       thisCurrent = thisCurrent->next;
     }
