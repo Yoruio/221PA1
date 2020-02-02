@@ -207,9 +207,11 @@ void GridList::CheckerSwap(GridList& otherlist)
         
 
       }
+      cout << "start block" << endl;
       currentSwapped = !currentSwapped;
       currentNode = currentNode->next;
       otherNode = otherNode->next;
+      cout << "end block" << endl;
     }
     firstSwapped = !firstSwapped;
   }
