@@ -96,7 +96,7 @@ void GridList::CheckerN()
 void GridList::Clear()
 {
   while(northwest != southeast){
-    GridNode* nextNode = northwest;
+    GridNode* nextNode = northwest->next;
     delete northwest;
     northwest = nextNode;
     cout << "while" << endl;
