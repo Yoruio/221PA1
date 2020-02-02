@@ -94,10 +94,13 @@ void GridList::Sandwich_H(GridList& inner)
     innerCurrent = innerCurrent->next;
     thisCurrent = thisCurrent->next;
     }
+
+
     cout << "third for loop" << endl;
+    nextNode->prev = thisCurrent;
+    cout << "assigned prevNode" << endl;
     thisCurrent->next = nextNode;
     cout << "assigned nextNode" << endl;
-    thisCurrent->next->prev = thisCurrent;
     cout << "fourth for loop" << endl;
     for(int x = middle+1; x < dimx; x++){
       thisCurrent = thisCurrent->next;
