@@ -74,6 +74,32 @@ void GridList::InsertBack(const Block& bdata)
 void GridList::Sandwich_H(GridList& inner)
 {
   // enter your code here
+  GridNode* thisCurrent = northwest;
+  GridNode* innerCurrent = inner.northwest;
+  int middle = dimx / 2;
+  for(int y = 1; y <= dimy; y++){
+    for(int x = 1; x <= middle; x++){
+      thisCurrent = thisCurrent->next;
+    }
+
+    GridNode* nextNode = thisCurrent->next;
+    thisCurrent->next = innerCurrent;
+    thisCurrent->next->prev = thisCurrent;
+
+    for(int x = 1; x <= inner.dimx; x ++){
+    innerCurrent = innerCurrent->next;
+    thisCurrent = thisCurrent->next;
+    }
+
+    thisCurrent->next = nextNode;
+    nextNode->prev = thisCurrent;
+
+    for(int x = middle+1; x < dimx; x++){
+      thisCurrent = thisCurrent->next;
+    }
+  }
+
+  dimx += inner.dimx;
 }
 
 // inner list must have the same horizontal resolution, horizontal block dimension, and block size
