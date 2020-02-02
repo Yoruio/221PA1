@@ -147,7 +147,7 @@ void GridList::Sandwich_V(GridList& inner)
 
   GridNode* thisNode = northwest;
   int middle = dimy / 2;
-  for(int i = 0; i < middle-1; i++){
+  for(int i = 0; i < middle; i++){
     for(int j = 0; j < dimx; j++){
       thisNode = thisNode->next;
     }
