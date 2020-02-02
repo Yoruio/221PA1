@@ -226,7 +226,7 @@ void GridList::CheckerSwap(GridList& otherlist)
     firstSwapped = !firstSwapped;
   }
 
-  if (currentSwapped){
+  if (!currentSwapped){
     GridNode *temp = southeast;
     southeast = otherlist.southeast;
     otherlist.southeast = temp;
