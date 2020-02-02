@@ -21,8 +21,12 @@ int dimy; // vertical dimension of grid (in blocks)*/
 PNG GridList::Render() const
 {
   int blockDimension = northwest->data.Dimension();
-  int imageHeight = dimy*northwest->data.Dimension();
+  int imageHeight = dimy*blockDimension;
   int imageWidth = dimx*blockDimension;
+
+  cout << "image Height: " << imageHeight << endl;
+  cout << "image Width: " << imageWidth << endl;
+  cout << "blockDimension: " << blockDimension << endl;
 
   PNG image(imageWidth, imageHeight);
   int x = 0;
