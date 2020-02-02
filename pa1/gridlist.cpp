@@ -73,6 +73,10 @@ void GridList::InsertBack(const Block& bdata)
 // DO NOT ALLOCATE OR DELETE ANY NODES IN THIS FUNCTION.
 void GridList::Sandwich_H(GridList& inner)
 {
+  if (inner.northwest == northwest || dimx < 2 || inner.dimx < 1 || inner.dimx !=dimx || inner.northwest->data.Dimension != northwest->data.Dimension){
+    return;
+  }
+
   cout << "sandwich h" << endl;
   // enter your code here
   GridNode* thisCurrent = northwest;
@@ -109,6 +113,9 @@ void GridList::Sandwich_H(GridList& inner)
     }
   }
 
+
+
+  inner.dimx += dimx;
   dimx += inner.dimx;
 }
 
