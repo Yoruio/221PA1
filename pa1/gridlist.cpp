@@ -185,9 +185,10 @@ void GridList::CheckerSwap(GridList& otherlist)
   bool firstSwapped = false;
   GridNode* currentNode = northwest;
   GridNode* otherNode = otherlist.northwest;
+  bool currentSwapped;
   while(currentNode != NULL){
     cout << "firstSwapped: " << firstSwapped << endl;
-    bool currentSwapped = firstSwapped;
+    currentSwapped = firstSwapped;
     for(int i = 0; i < dimx; i++){
       cout << "start if" << endl;
       if (currentSwapped){
@@ -224,6 +225,13 @@ void GridList::CheckerSwap(GridList& otherlist)
     }
     firstSwapped = !firstSwapped;
   }
+
+  if (currentSwapped){
+    GridNode *temp = southeast;
+    southeast = otherlist.southeast;
+    otherlist.southeast = temp;
+  }
+
   // enter your code here
 }
 
