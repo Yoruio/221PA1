@@ -160,6 +160,7 @@ void GridList::Sandwich_V(GridList& inner)
   inner.southeast->next = thisNode;
   thisNode->prev = inner.southeast;
 
+  cout << "spliced" << endl;
 
   dimy += inner.dimy;
 
