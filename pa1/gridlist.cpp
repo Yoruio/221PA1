@@ -118,9 +118,7 @@ void GridList::Sandwich_H(GridList& inner)
     }
   }
 
-
   dimx += inner.dimx;
-
 
   inner.northwest = NULL;
   inner.southeast = NULL;
@@ -143,6 +141,27 @@ void GridList::Sandwich_H(GridList& inner)
 // DO NOT ALLOCATE OR DELETE ANY NODES IN THIS FUNCTION.
 void GridList::Sandwich_V(GridList& inner)
 {
+  if (northwest == inner.northwest || dimy < 2 || inner.dimy < 1 || inner.dimx != dimx || inner.northwest->data.Dimension() != northwest->data.Dimension()){
+    return;
+  }
+
+  GridNode* thisNode = northwest;
+  int middle = dimy / 2;
+  for(int i = 0; i < middle; i++){
+    for(int j = 0; j < dimx; j++){
+      thisNode = thisNode->next;
+    }
+  }
+  thisNode->prev->next = inner.northwest;
+  inner.southeast->next = thisNode;
+
+
+  dimy += inner.dimy;
+
+  inner.northwest = NULL;
+  inner.southeast = NULL;
+  inner.dimx = 0;
+  inner.dimy = 0;
   // enter your code here
 }
 
