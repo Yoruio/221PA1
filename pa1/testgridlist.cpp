@@ -33,7 +33,9 @@ TEST_CASE("GridList::Constructor - InsertBack - 2x1", "[weight=1][part=gridlist]
 
 TEST_CASE("GridList::Constructor - InsertBack - linking", "[weight=1][part=gridlist]") {
   PNG img(3, 1);
+  cout << "new gridlist" << endl;
   GridList gl(img, 1);
+  cout << "new gridlist created" << endl;
 
   GridNode* p0_f = gl.getNorthWest();
   GridNode* p1_f = p0_f->next;
