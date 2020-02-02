@@ -551,6 +551,16 @@ TEST_CASE("GridList::Sandwich_V - odd height outer", "[weight=1][part=gridlist]"
   HSLAPixel* p8 = outimg.getPixel(0, 4);
   HSLAPixel* p9 = outimg.getPixel(1, 4);
 
+  cout << p1->h << endl;
+  cout << p2->h << endl;
+  cout << p3->h << endl;
+  cout << p4->h << endl;
+  cout << p5->h << endl;
+  cout << p6->h << endl;
+  cout << p7->h << endl;
+  cout << p8->h << endl;
+  cout << p9->h << endl;
+
   REQUIRE(gl_outer.Length() == 10);
   REQUIRE(gl_inner.Length() == 0);
   REQUIRE(p0->h == 90);

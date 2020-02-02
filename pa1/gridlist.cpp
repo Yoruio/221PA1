@@ -147,7 +147,7 @@ void GridList::Sandwich_V(GridList& inner)
 
   GridNode* thisNode = northwest;
   int middle = dimy / 2;
-  cout << "middle: " << middle;
+  cout << "middle: " << middle << endl;
   for(int i = 0; i < middle; i++){
     for(int j = 0; j < dimx; j++){
       thisNode = thisNode->next;
