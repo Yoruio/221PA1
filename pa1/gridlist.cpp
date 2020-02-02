@@ -34,9 +34,10 @@ void GridList::InsertBack(const Block& bdata)
     northwest = new GridNode(bdata);
     southeast = new GridNode(bdata);
   } else {
+    std::cout << "else" << endl;
     southeast->next = new GridNode(bdata);
     southeast = southeast->next;
-    
+
   }
 }
 
