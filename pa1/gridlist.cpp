@@ -99,7 +99,6 @@ void GridList::CheckerN()
 //   and re-initializes this list to an empty state
 void GridList::Clear()
 {
-  // enter your code here
   while(northwest == southeast){
     GridNode* nextNode = northwest;
     delete northwest;
