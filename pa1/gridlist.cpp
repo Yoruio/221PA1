@@ -191,13 +191,21 @@ void GridList::CheckerSwap(GridList& otherlist)
     for(int i = 0; i < dimx; i++){
       if (currentSwapped){
         GridNode *currentNext = currentNode->next;
+        GridNode *currentPrev = currentNode->prev;
+        
+        currentNode->prev->next = otherNode;
+        currentNode->prev = otherNode->prev;
+
+        otherNode->prev->next = currentNode;
+        otherNode->prev = currentPrev;
+
         currentNode->next = otherNode->next;
         currentNode->next->prev = currentNode;
-        currentNode->next->next = currentNext->next;
 
-        currentNext->next = otherNode->next->next;
-        otherNode->next = currentNode->next;
+        otherNode->next = currentNext;
         otherNode->next->prev = otherNode;
+        
+
       }
       currentSwapped = !currentSwapped;
       currentNode = currentNode->next;
