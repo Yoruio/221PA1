@@ -103,6 +103,7 @@ void GridList::Clear()
     GridNode* nextNode = northwest;
     delete northwest;
     northwest = nextNode;
+    cout << "while" << endl;
   }
   delete northwest;
   northwest = NULL;
