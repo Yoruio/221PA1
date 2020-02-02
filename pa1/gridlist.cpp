@@ -33,8 +33,8 @@ PNG GridList::Render() const
   int x = 0;
   int y = 0;
   for(GridNode* currentNode = northwest; currentNode != NULL; currentNode = currentNode->next){
-    cout << "rendering: (" << x*blockDimension << "," << imageHeight-y*blockDimension << ")" << endl;
-    currentNode->data.Render(image, imageHeight-y*blockDimension, x*blockDimension);
+    cout << "rendering: (" << x*blockDimension << "," << imageHeight-1-y*blockDimension << ")" << endl;
+    currentNode->data.Render(image, imageHeight-1-y*blockDimension, x*blockDimension);
     if (x+blockDimension >= imageWidth) {
       x = 0;
       y ++;
