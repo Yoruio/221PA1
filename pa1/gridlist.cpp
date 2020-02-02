@@ -117,11 +117,15 @@ void GridList::Sandwich_H(GridList& inner)
       thisCurrent = thisCurrent->next;
     }
   }
-
-
-
-  inner.dimx += dimx;
   dimx += inner.dimx;
+
+
+  inner.northwest == NULL;
+  inner.southeast == NULL;
+  inner.dimx = 0;
+  inner.dimy = 0;
+
+  
 }
 
 // inner list must have the same horizontal resolution, horizontal block dimension, and block size
