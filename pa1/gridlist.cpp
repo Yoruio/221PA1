@@ -143,7 +143,11 @@ void GridList::Clear()
 // Allocates new nodes into this list as copies of all nodes from otherlist
 void GridList::Copy(const GridList& otherlist)
 {
-  // enter your code here
+  GridNode* current = otherlist.northwest;
+  while(current != NULL){
+    southeast->next = new GridNode(current->data);
+    southeast->next->prev = southeast;
+  }
 }
 
 // IMPLEMENT ANY PRIVATE FUNCTIONS YOU HAVE ADDED BELOW
