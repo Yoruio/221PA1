@@ -151,6 +151,7 @@ void GridList::Sandwich_V(GridList& inner)
   for(int i = 0; i < middle; i++){
     for(int j = 0; j < dimx; j++){
       thisNode = thisNode->next;
+      cout << "++" << endl;
     }
   }
   thisNode->prev->next = inner.northwest;
