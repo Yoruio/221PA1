@@ -75,7 +75,7 @@ void GridList::Sandwich_H(GridList& inner)
 {
   cout << "inner dimy: " << inner.dimy << endl;
   cout << "dimw: " << dimy << endl;
-  if (inner.northwest == northwest || dimx < 2 || inner.dimx < 1 || inner.dimy != dimy || inner.northwest->data.Dimension != northwest->data.Dimension){
+  if (inner.northwest == northwest || dimx < 2 || inner.dimx < 1 || inner.dimy != dimy || inner.northwest->data.Dimension() != northwest->data.Dimension()){
     return;
   }
 
