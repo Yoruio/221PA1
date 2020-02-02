@@ -112,16 +112,18 @@ void GridList::Sandwich_H(GridList& inner)
     cout << "assigned prevNode" << endl;
     thisCurrent->next = nextNode;
     cout << "assigned nextNode" << endl;
-    cout << "fourth for loop" << endl;
-    for(int x = middle+1; x <= dimx; x++){
+
+    for(int x = middle; x <= dimx; x++){
       thisCurrent = thisCurrent->next;
     }
   }
+
+
   dimx += inner.dimx;
 
 
-  inner.northwest == NULL;
-  inner.southeast == NULL;
+  inner.northwest = NULL;
+  inner.southeast = NULL;
   inner.dimx = 0;
   inner.dimy = 0;
 
