@@ -37,10 +37,12 @@ TEST_CASE("GridList::Constructor - InsertBack - linking", "[weight=1][part=gridl
   GridList gl(img, 1);
   cout << "new gridlist created" << endl;
 
+  cout << "get northwest" << endl;
   GridNode* p0_f = gl.getNorthWest();
   GridNode* p1_f = p0_f->next;
   GridNode* p2_f = p1_f->next;
 
+  cout << "get southEast" << endl;
   GridNode* p2_b = gl.getSouthEast();
   GridNode* p1_b = p2_b->prev;
   GridNode* p0_b = p1_b->prev;

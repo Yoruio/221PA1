@@ -10,10 +10,10 @@
 #include "gridlist.h"
 #include "gridlist_given.cpp"
 
-GridNode* northwest; // pointer to first (upper-left) node in the grid
+/*GridNode* northwest; // pointer to first (upper-left) node in the grid
 GridNode* southeast; // pointer to last (lower-right) node in the grid
 int dimx; // horizontal dimension of grid (in blocks)
-int dimy; // vertical dimension of grid (in blocks)
+int dimy; // vertical dimension of grid (in blocks)*/
 
 // Creates a PNG of appropriate pixel dimensions according to the GridList's structure
 //   and colours each pixel according the each GridNode's Block data.
@@ -31,14 +31,10 @@ PNG GridList::Render() const
 void GridList::InsertBack(const Block& bdata)
 {
   if (northwest == NULL){
-    cout << "if" << endl;
     northwest = new GridNode(bdata);
     southeast = northwest;
-    cout << "new gridnode" << endl;
   } else {
-    std::cout << "else" << endl;
     southeast->next = new GridNode(bdata);
-    cout << "new gridnode" << endl;
     southeast = southeast->next;
 
   }
@@ -99,7 +95,7 @@ void GridList::CheckerN()
 //   and re-initializes this list to an empty state
 void GridList::Clear()
 {
-  /*while(northwest != southeast){
+  while(northwest != southeast){
     GridNode* nextNode = northwest;
     delete northwest;
     northwest = nextNode;
@@ -107,7 +103,7 @@ void GridList::Clear()
   }
   delete northwest;
   northwest = NULL;
-  southeast = NULL;*/
+  southeast = NULL;
 }
 
 // Allocates new nodes into this list as copies of all nodes from otherlist
