@@ -206,10 +206,12 @@ void GridList::CheckerSwap(GridList& otherlist)
 
         cout << "4" << endl;
         currentNode->next = otherNode->next;
+        if (currentNode->next != NULL)
         currentNode->next->prev = currentNode;
 
         cout << "5" << endl;
         otherNode->next = currentNext;
+        if (currentNode->next != NULL)
         otherNode->next->prev = otherNode;
         
 
