@@ -80,6 +80,7 @@ void GridList::Sandwich_H(GridList& inner)
   int middle = dimx / 2;
   for(int y = 1; y <= dimy; y++){
     cout << "outer for loop" << endl;
+    cout << "middle: " << middle << endl;
     for(int x = 1; x <= middle; x++){
       cout << "inside first loop: " << x << endl;
       thisCurrent = thisCurrent->next;
