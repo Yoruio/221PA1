@@ -35,8 +35,8 @@ void Block::Build(PNG& im, int upper, int left, int dimension){    //upper left 
 // PRE: upper and left (and upper + dimension, left + dimension) are valid
 //        vector indices
 void Block::Render(PNG& im, int upper, int left) const{
-  for(int x = 0; (unsigned) x < data.size(); x++){
-    for(int y = 0; (unsigned) y < data.size(); y++){
+  for(int x = 0; x < data.size(); x++){
+    for(int y = 0;  y < data.size(); y++){
       *im.getPixel(left + x, im.height()-upper-Dimension()+y) = data[x][y];
     }
   }
