@@ -24,16 +24,10 @@ PNG GridList::Render() const
   int imageHeight = dimy*blockDimension;
   int imageWidth = dimx*blockDimension;
 
-  cout << "image Height: " << imageHeight << endl;
-  cout << "dimx: " << dimx << endl;
-  cout << "image Width: " << imageWidth << endl;
-  cout << "blockDimension: " << blockDimension << endl;
-
   PNG image(imageWidth, imageHeight);
   int x = 0;
   int y = 0;
   for(GridNode* currentNode = northwest; currentNode != NULL; currentNode = currentNode->next){
-    cout << "rendering: (" << x*blockDimension << "," << y*blockDimension << ")" << endl;
     currentNode->data.Render(image, y*blockDimension, x*blockDimension);
     if (x+blockDimension >= imageWidth) {
       x = 0;
@@ -73,13 +67,10 @@ void GridList::InsertBack(const Block& bdata)
 // DO NOT ALLOCATE OR DELETE ANY NODES IN THIS FUNCTION.
 void GridList::Sandwich_H(GridList& inner)
 {
-  cout << "inner dimy: " << inner.dimy << endl;
-  cout << "dimw: " << dimy << endl;
   if (inner.northwest == northwest || dimx < 2 || inner.dimx < 1 || inner.dimy != dimy || inner.northwest->data.Dimension() != northwest->data.Dimension()){
     return;
   }
 
-  cout << "sandwich h" << endl;
   // enter your code here
   GridNode* thisCurrent = northwest;
   GridNode* innerCurrent = inner.northwest;
@@ -87,12 +78,9 @@ void GridList::Sandwich_H(GridList& inner)
 
   //for every row
   for(int y = 1; y <= dimy; y++){
-    cout << "outer for loop" << endl;
-    cout << "middle: " << middle << endl;
 
     //original left side
     for(int x = 2; x <= middle; x++){
-      cout << "inside first loop: " << x << endl;
       thisCurrent = thisCurrent->next;
     }
 
@@ -107,11 +95,8 @@ void GridList::Sandwich_H(GridList& inner)
     }
 
     //original right
-    cout << "third for loop" << endl;
     nextNode->prev = thisCurrent;
-    cout << "assigned prevNode" << endl;
     thisCurrent->next = nextNode;
-    cout << "assigned nextNode" << endl;
 
     for(int x = middle; x <= dimx; x++){
       thisCurrent = thisCurrent->next;
@@ -147,11 +132,9 @@ void GridList::Sandwich_V(GridList& inner)
 
   GridNode* thisNode = northwest;
   int middle = dimy / 2;
-  cout << "middle: " << middle << endl;
   for(int i = 0; i < middle; i++){
     for(int j = 0; j < dimx; j++){
       thisNode = thisNode->next;
-      cout << "++" << endl;
     }
   }
   thisNode->prev->next = inner.northwest;
@@ -159,8 +142,6 @@ void GridList::Sandwich_V(GridList& inner)
 
   inner.southeast->next = thisNode;
   thisNode->prev = inner.southeast;
-
-  cout << "spliced" << endl;
 
   dimy += inner.dimy;
 
@@ -187,41 +168,32 @@ void GridList::CheckerSwap(GridList& otherlist)
   GridNode* otherNode = otherlist.northwest;
   bool currentSwapped;
   while(currentNode != NULL){
-    cout << "firstSwapped: " << firstSwapped << endl;
     currentSwapped = firstSwapped;
     for(int i = 0; i < dimx; i++){
-      cout << "start if" << endl;
       if (currentSwapped){
 
-        cout << "1" << endl;
         GridNode *currentNext = currentNode->next;
         GridNode *currentPrev = currentNode->prev;
         
-        cout << "2" << endl;
         currentNode->prev->next = otherNode;
         currentNode->prev = otherNode->prev;
 
-        cout << "3" << endl;
         otherNode->prev->next = currentNode;
         otherNode->prev = currentPrev;
 
-        cout << "4" << endl;
         currentNode->next = otherNode->next;
         if (currentNode->next != NULL)
         currentNode->next->prev = currentNode;
 
-        cout << "5" << endl;
         otherNode->next = currentNext;
         if (currentNode->next != NULL)
         otherNode->next->prev = otherNode;
         
 
       }
-      cout << "start block" << endl;
       currentSwapped = !currentSwapped;
       currentNode = currentNode->next;
       otherNode = otherNode->next;
-      cout << "end block" << endl;
     }
     firstSwapped = !firstSwapped;
   }
@@ -245,7 +217,6 @@ void GridList::CheckerN()
   bool firstBlack = false;
   GridNode* currentNode = northwest;
   while (currentNode != NULL){
-    cout << "firstBlack: " << firstBlack << endl;
     bool currentBlack = firstBlack;
     for(int i = 0; i < dimx; i++){
       if (currentBlack) currentNode->data.Negative();
@@ -265,7 +236,6 @@ void GridList::Clear()
     GridNode* nextNode = northwest->next;
     delete northwest;
     northwest = nextNode;
-    cout << "while" << endl;
   }
   delete northwest;
   northwest = NULL;
@@ -275,7 +245,6 @@ void GridList::Clear()
 // Allocates new nodes into this list as copies of all nodes from otherlist
 void GridList::Copy(const GridList& otherlist)
 {
-  cout << "COPY" << endl;
   GridNode* current = otherlist.northwest;
   while(current != NULL){
     southeast->next = new GridNode(current->data);
