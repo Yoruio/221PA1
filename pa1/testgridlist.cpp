@@ -33,12 +33,16 @@ TEST_CASE("GridList::Constructor - InsertBack - 2x1", "[weight=1][part=gridlist]
 
 TEST_CASE("GridList::Constructor - InsertBack - linking", "[weight=1][part=gridlist]") {
   PNG img(3, 1);
+  cout << "new gridlist" << endl;
   GridList gl(img, 1);
+  cout << "new gridlist created" << endl;
 
+  cout << "get northwest" << endl;
   GridNode* p0_f = gl.getNorthWest();
   GridNode* p1_f = p0_f->next;
   GridNode* p2_f = p1_f->next;
 
+  cout << "get southEast" << endl;
   GridNode* p2_b = gl.getSouthEast();
   GridNode* p1_b = p2_b->prev;
   GridNode* p0_b = p1_b->prev;
@@ -60,6 +64,7 @@ TEST_CASE("GridList::Render - 1x1", "[weight=1][part=gridlist]") {
   p->h = 270; p->s = 1.0; p->l = 0.875;
   GridList gl(img, 2);
 
+  cout << "rendering" << endl;
   PNG outimg = gl.Render();
   HSLAPixel* p0 = outimg.getPixel(0, 0);
   HSLAPixel* p1 = outimg.getPixel(1, 0);
@@ -545,6 +550,17 @@ TEST_CASE("GridList::Sandwich_V - odd height outer", "[weight=1][part=gridlist]"
   HSLAPixel* p7 = outimg.getPixel(1, 3);
   HSLAPixel* p8 = outimg.getPixel(0, 4);
   HSLAPixel* p9 = outimg.getPixel(1, 4);
+
+  cout << p0->h << endl;
+  cout << p1->h << endl;
+  cout << p2->h << endl;
+  cout << p3->h << endl;
+  cout << p4->h << endl;
+  cout << p5->h << endl;
+  cout << p6->h << endl;
+  cout << p7->h << endl;
+  cout << p8->h << endl;
+  cout << p9->h << endl;
 
   REQUIRE(gl_outer.Length() == 10);
   REQUIRE(gl_inner.Length() == 0);
